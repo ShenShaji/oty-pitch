@@ -29,6 +29,10 @@ html,body{height:100%;background:var(--bg);color:var(--fg);font-family:system-ui
 .split{display:grid;grid-template-columns:1fr 1fr;gap:5vmin;align-items:center;width:min(94vw,1100px)}
 .hl{color:var(--accent)}
 .octo{position:absolute;width:20vmin;aspect-ratio:1;z-index:2}
+.octo.inl{position:relative;width:17vmin;flex:none}
+.askrow{display:flex;align-items:center;gap:2.4vmin;margin-top:3vmin}
+.col.withm{display:grid;grid-template-columns:1fr 17vmin;gap:3vmin;align-items:end}
+.panel .left-col .octo.inl{margin-top:2.4vmin}
 .octo svg{width:100%;height:100%;display:block;overflow:visible}
 
 /* S1 earth */
@@ -68,10 +72,13 @@ html,body{height:100%;background:var(--bg);color:var(--fg);font-family:system-ui
 .chips .chip{margin-top:0}
 
 /* S4 reveal */
-#word{font-size:clamp(34px,10vmin,120px);font-weight:800;letter-spacing:-.02em;white-space:pre;line-height:1.1;min-height:1.2em}
+#word{display:inline-block;position:relative;font-size:clamp(34px,10vmin,120px);font-weight:800;letter-spacing:-.02em;white-space:pre;line-height:1.1;min-height:1.2em}
 .ltr{display:inline-block;opacity:0;transform:translateY(.2em);transition:opacity .45s var(--ease-out),transform .45s var(--ease-out);color:var(--fg)}
 .ltr.cap{color:var(--accent)}
 .ltr.on{opacity:1;transform:none}
+.ltr.cap{transform:translate(var(--dx,0px),.2em)}
+.ltr.cap.on{transform:translate(var(--dx,0px),0)}
+.ltr.cap.go{transform:none;transition:transform 1.3s var(--ease-in-out),opacity .45s var(--ease-out)}
 .ring{position:absolute;width:44vmin;height:44vmin;border-radius:50%;background:radial-gradient(closest-side,#9b87ff55,transparent);opacity:0;transform:scale(.8);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
 .ring.on{opacity:1;transform:scale(1)}
 .stack{position:relative;width:30vmin;height:30vmin;margin:0 auto 1vmin}
@@ -118,7 +125,7 @@ body.paused #hud,body.hudon #hud{opacity:1}
 @media (max-width:760px){.panel,.split{grid-template-columns:1fr}.card .octo{top:-9vmin}}
 @media (prefers-reduced-motion:reduce){
   .spin,.unspin{animation:none}
-  .rv,.rv.pop,.ltr{transform:none}
+  .rv,.rv.pop,.ltr,.ltr.cap,.ltr.cap.on{transform:none!important}
   .bar i{transition:none}
 }
 </style>
@@ -147,9 +154,7 @@ body.paused #hud,body.hudon #hud{opacity:1}
   <div class="left">
     <div class="rv" data-at="0.5"><span class="speed" id="spd">0</span> <span class="unit">km/h</span></div>
     <div class="sub rv" data-at="0.8">is how fast you are moving right now, near the equator. Faster than a jet.</div>
-    <div class="big rv hl" data-at="7" style="text-align:left;margin-top:3vmin">So why don't you feel it?</div>
-  </div>
-  <div class="octo rv" data-at="7" style="right:4vmin;bottom:4vmin" data-pose="06-curious"><svg class="octy a-breathe h-tilt " viewBox="0 0 200 200" role="img" aria-label="OTY octopus: Curious" xmlns="http://www.w3.org/2000/svg"><style>
+    <div class="askrow"><div class="octo inl rv" data-at="7" data-pose="06-curious"><svg class="octy a-breathe h-tilt " viewBox="0 0 200 200" role="img" aria-label="OTY octopus: Curious" xmlns="http://www.w3.org/2000/svg"><style>
 .octy .body-all{transform-origin:100px 205px}
 .octy .enter{animation:o-enter .45s cubic-bezier(.34,1.56,.64,1) both;transform-origin:100px 205px}
 @keyframes o-enter{from{opacity:0;transform:scale(.9)}}
@@ -243,11 +248,12 @@ body.paused #hud,body.hudon #hud{opacity:1}
    
   </g></g>
   <g class="float"><text x="164" y="58" font-size="34" font-weight="700" fill="#4F46C8" font-family="system-ui,sans-serif">?</text></g>
-</svg></div>
+</svg></div><div class="big rv hl" data-at="7" style="text-align:left">So why don't you feel it?</div></div>
+  </div>
 </div></section>
 
 <!-- 2 ANSWER 12-22 -->
-<section class="scene" id="s2"><div class="col">
+<section class="scene" id="s2"><div class="col withm"><div class="main">
   <div class="big rv" data-at="0.2">We only feel <span class="hl">changes</span> in speed.</div>
   <div class="track rv" data-at="0.6">
     <div class="stripes" id="stripes"></div><div class="ground"></div>
@@ -255,7 +261,7 @@ body.paused #hud,body.hudon #hud{opacity:1}
   </div>
   <div><span class="chip ok rv" data-at="0.8" data-off="5.2" id="c2a">Steady speed: you feel nothing</span><span class="chip warn rv" data-at="5.6" id="c2b">Sudden change: you feel it</span></div>
   <div class="sub rv" data-at="8">And everything around us moves along with us.</div>
-  <div class="octo rv" data-at="1.5" style="right:3vmin;bottom:5vmin" data-pose="13-explaining"><svg class="octy a-bob  " viewBox="0 0 200 200" role="img" aria-label="OTY octopus: Explaining" xmlns="http://www.w3.org/2000/svg"><style>
+</div><div class="octo inl rv" data-at="1.5" data-pose="13-explaining"><svg class="octy a-bob  " viewBox="0 0 200 200" role="img" aria-label="OTY octopus: Explaining" xmlns="http://www.w3.org/2000/svg"><style>
 .octy .body-all{transform-origin:100px 205px}
 .octy .enter{animation:o-enter .45s cubic-bezier(.34,1.56,.64,1) both;transform-origin:100px 205px}
 @keyframes o-enter{from{opacity:0;transform:scale(.9)}}
@@ -353,7 +359,7 @@ body.paused #hud,body.hudon #hud{opacity:1}
 </div></section>
 
 <!-- 3 PROBLEM 22-35 -->
-<section class="scene" id="s3"><div class="col">
+<section class="scene" id="s3"><div class="col withm"><div class="main">
   <div class="big rv" data-at="0.2">40 children. One explanation.</div>
   <div id="grid" class="rv" data-at="0.5"></div>
   <div class="chips">
@@ -362,7 +368,7 @@ body.paused #hud,body.hudon #hud{opacity:1}
     <span class="chip rv" data-at="7" style="color:var(--warn);border-color:var(--warn)">"but Earth is round"</span>
   </div>
   <div class="sub rv" data-at="9">A teacher can only explain it one way.</div>
-  <div class="octo rv" data-at="3" style="right:3vmin;bottom:5vmin" data-pose="15-tricky"><svg class="octy a-breathe  " viewBox="0 0 200 200" role="img" aria-label="OTY octopus: I’m here" xmlns="http://www.w3.org/2000/svg"><style>
+</div><div class="octo inl rv" data-at="3" data-pose="15-tricky"><svg class="octy a-breathe  " viewBox="0 0 200 200" role="img" aria-label="OTY octopus: I’m here" xmlns="http://www.w3.org/2000/svg"><style>
 .octy .body-all{transform-origin:100px 205px}
 .octy .enter{animation:o-enter .45s cubic-bezier(.34,1.56,.64,1) both;transform-origin:100px 205px}
 @keyframes o-enter{from{opacity:0;transform:scale(.9)}}
@@ -660,9 +666,8 @@ body.paused #hud,body.hudon #hud{opacity:1}
 
 <!-- 5 STUDENT 47-54 -->
 <section class="scene" id="s5"><div class="panel">
-  <div><div class="who">Student</div><div class="promise">Practice that fits me</div></div>
-  <div class="card">
-    <div class="octo rv" data-at="0.4" data-pose="20-physics"><svg class="octy a-breathe h-nod " viewBox="0 0 200 200" role="img" aria-label="OTY octopus: Physics" xmlns="http://www.w3.org/2000/svg"><style>
+  <div class="left-col"><div class="who">Student</div><div class="promise">Practice that fits me</div>
+    <div class="octo inl rv" data-at="0.4" data-pose="20-physics"><svg class="octy a-breathe h-nod " viewBox="0 0 200 200" role="img" aria-label="OTY octopus: Physics" xmlns="http://www.w3.org/2000/svg"><style>
 .octy .body-all{transform-origin:100px 205px}
 .octy .enter{animation:o-enter .45s cubic-bezier(.34,1.56,.64,1) both;transform-origin:100px 205px}
 @keyframes o-enter{from{opacity:0;transform:scale(.9)}}
@@ -756,7 +761,8 @@ body.paused #hud,body.hudon #hud{opacity:1}
    
   </g></g>
   <g class="spin"><ellipse cx="172" cy="40" rx="20" ry="8" fill="none" stroke="#4F46C8" stroke-width="2.4"></ellipse><ellipse cx="172" cy="40" rx="20" ry="8" fill="none" stroke="#4F46C8" stroke-width="2.4" transform="rotate(60 172 40)"></ellipse><ellipse cx="172" cy="40" rx="20" ry="8" fill="none" stroke="#4F46C8" stroke-width="2.4" transform="rotate(-60 172 40)"></ellipse></g><circle cx="172" cy="40" r="4.5" fill="#FF6B5E"></circle>
-</svg></div>
+</svg></div></div>
+  <div class="card">
     <div class="q">Why don't we feel Earth's spin?</div>
     <div class="q hint rv" data-at="1.2" data-off="3.4">Think of a train at steady speed…</div>
     <div class="q ok rv" data-at="3.4"><b class="hl">Oh, That's Y!</b> Steady motion has no feel.</div>
@@ -766,9 +772,8 @@ body.paused #hud,body.hudon #hud{opacity:1}
 
 <!-- 6 TEACHER 54-60 -->
 <section class="scene" id="s6"><div class="panel">
-  <div><div class="who">Teacher</div><div class="promise">Less workload, every child known</div></div>
-  <div class="card">
-    <div class="octo rv" data-at="0.4" data-pose="10-class_report"><svg class="octy a-breathe  " viewBox="0 0 200 200" role="img" aria-label="OTY octopus: Class report" xmlns="http://www.w3.org/2000/svg"><style>
+  <div class="left-col"><div class="who">Teacher</div><div class="promise">Less workload, every child known</div>
+    <div class="octo inl rv" data-at="0.4" data-pose="10-class_report"><svg class="octy a-breathe  " viewBox="0 0 200 200" role="img" aria-label="OTY octopus: Class report" xmlns="http://www.w3.org/2000/svg"><style>
 .octy .body-all{transform-origin:100px 205px}
 .octy .enter{animation:o-enter .45s cubic-bezier(.34,1.56,.64,1) both;transform-origin:100px 205px}
 @keyframes o-enter{from{opacity:0;transform:scale(.9)}}
@@ -862,7 +867,8 @@ body.paused #hud,body.hudon #hud{opacity:1}
    
   </g></g>
   <g class="float"><rect x="152" y="112" width="44" height="38" rx="5" fill="#fff" stroke="#A9B1C2" stroke-width="2.2"></rect><rect x="159" y="134" width="7" height="10" rx="1.5" fill="#CBD2DF"></rect><rect x="170" y="126" width="7" height="18" rx="1.5" fill="#4F46C8" opacity=".6"></rect><rect x="181" y="119" width="7" height="25" rx="1.5" fill="#4F46C8"></rect></g>
-</svg></div>
+</svg></div></div>
+  <div class="card">
     <div class="row"><span>Plans, homework &amp; marking</span><b>handled</b></div>
     <div class="row"><span>Today</span><b>who needs help</b></div>
     <div class="heat" id="heat"></div>
@@ -871,9 +877,8 @@ body.paused #hud,body.hudon #hud{opacity:1}
 
 <!-- 7 PARENT 60-66 -->
 <section class="scene" id="s7"><div class="panel">
-  <div><div class="who">Parent</div><div class="promise">A weekly picture, not just a report card</div></div>
-  <div class="card">
-    <div class="octo rv" data-at="0.4" data-pose="04-speaking"><svg class="octy a-bob  " viewBox="0 0 200 200" role="img" aria-label="OTY octopus: Speaking" xmlns="http://www.w3.org/2000/svg"><style>
+  <div class="left-col"><div class="who">Parent</div><div class="promise">A weekly picture, not just a report card</div>
+    <div class="octo inl rv" data-at="0.4" data-pose="04-speaking"><svg class="octy a-bob  " viewBox="0 0 200 200" role="img" aria-label="OTY octopus: Speaking" xmlns="http://www.w3.org/2000/svg"><style>
 .octy .body-all{transform-origin:100px 205px}
 .octy .enter{animation:o-enter .45s cubic-bezier(.34,1.56,.64,1) both;transform-origin:100px 205px}
 @keyframes o-enter{from{opacity:0;transform:scale(.9)}}
@@ -967,7 +972,8 @@ body.paused #hud,body.hudon #hud{opacity:1}
    
   </g></g>
   
-</svg></div>
+</svg></div></div>
+  <div class="card">
     <div class="row"><span>This week</span><b>Motion &amp; speed</b></div>
     <div class="row"><span>Strong</span><b style="color:var(--good)">Speed, distance</b></div>
     <div class="row"><span>Needs a nudge</span><b style="color:var(--warn)">Frames of reference</b></div>
@@ -977,9 +983,8 @@ body.paused #hud,body.hudon #hud{opacity:1}
 
 <!-- 8 PRINCIPAL 66-73 -->
 <section class="scene" id="s8"><div class="panel">
-  <div><div class="who">Principal &amp; school</div><div class="promise">The whole school in view</div></div>
-  <div class="card">
-    <div class="octo rv" data-at="0.4" data-pose="12-heads_up"><svg class="octy a-bob  t-flush" viewBox="0 0 200 200" role="img" aria-label="OTY octopus: Heads up" xmlns="http://www.w3.org/2000/svg"><style>
+  <div class="left-col"><div class="who">Principal &amp; school</div><div class="promise">The whole school in view</div>
+    <div class="octo inl rv" data-at="0.4" data-pose="12-heads_up"><svg class="octy a-bob  t-flush" viewBox="0 0 200 200" role="img" aria-label="OTY octopus: Heads up" xmlns="http://www.w3.org/2000/svg"><style>
 .octy .body-all{transform-origin:100px 205px}
 .octy .enter{animation:o-enter .45s cubic-bezier(.34,1.56,.64,1) both;transform-origin:100px 205px}
 @keyframes o-enter{from{opacity:0;transform:scale(.9)}}
@@ -1073,7 +1078,8 @@ body.paused #hud,body.hudon #hud{opacity:1}
    
   </g></g>
   <g class="pulse"><circle cx="174" cy="40" r="15" fill="#FF6B5E"></circle><rect x="171.5" y="29" width="5" height="14" rx="2.5" fill="#fff"></rect><circle cx="174" cy="48" r="2.8" fill="#fff"></circle></g>
-</svg></div>
+</svg></div></div>
+  <div class="card">
     <div class="row"><span>Class 6</span><div class="bar"><i style="--w:.68"></i></div><b>68</b></div>
     <div class="row"><span>Class 7</span><div class="bar"><i style="--w:.74"></i></div><b>74</b></div>
     <div class="row"><span>Class 8</span><div class="bar"><i style="--w:.59"></i></div><b>59</b></div>
@@ -1515,8 +1521,14 @@ const stripes=$('stripes'),cup=$('cup');
 /* OTY word: O,T,Y first; the rest fill in */
 const SPEC=[['O',1],['h',0],[',',0],[' ',0],['T',1],['h',0],['a',0],['t',0],["'",0],['s',0],[' ',0],['Y',1],['!',0]];
 const word=$('word');const ltrs=SPEC.map(([ch,cap])=>{const s=document.createElement('span');s.className='ltr'+(cap?' cap':'');s.textContent=ch;word.appendChild(s);return {s,cap}});
-const capAt=[1.2,2.0,2.8];            // O, T, Y land one by one (mascot hello)
-let k=0;const fillStart=4.6;let f=0;
+const fillStart=5.2;   // after the caps have landed (expand 4.0 to 5.3)
+function layoutCaps(){
+  const caps=ltrs.filter(l=>l.cap).map(l=>l.s);
+  const W=caps.reduce((a,s)=>a+s.offsetWidth,0);
+  let x=(word.offsetWidth-W)/2;                 // tight "OTY" block, centred
+  caps.forEach(s=>{s.style.setProperty('--dx',(x-s.offsetLeft)+'px');x+=s.offsetWidth});
+}
+addEventListener('resize',layoutCaps);
 
 let t0=performance.now(),offset=0,paused=false,cur=-1,timers=[];
 const clear=()=>{timers.forEach(clearTimeout);timers=[]};
@@ -1544,9 +1556,11 @@ function enter(i,local){
     const a=$('m4a'),b=$('m4b'),r=$('ring');
     [a,b].forEach(m=>m.style.opacity='');b.classList.remove('on');r.classList.remove('on');
     later(0.2,()=>restartMascot(a));
-    capAt.forEach((at,n)=>later(at,()=>{ltrs.filter(l=>l.cap)[n].s.classList.add('on')}));
-    later(4,()=>{b.classList.add('on');restartMascot(b);r.classList.add('on')});
-    ltrs.filter(l=>!l.cap).forEach((l,n)=>later(fillStart+n*0.09,()=>l.s.classList.add('on')));
+    ltrs.forEach(l=>l.s.classList.remove('go'));
+    layoutCaps();
+    ltrs.filter(l=>l.cap).forEach((l,n)=>later(1.2+n*0.08,()=>l.s.classList.add('on')));
+    later(4,()=>{b.classList.add('on');restartMascot(b);r.classList.add('on');ltrs.filter(l=>l.cap).forEach(l=>l.s.classList.add('go'))});
+    ltrs.filter(l=>!l.cap).forEach((l,n)=>later(fillStart+n*0.07,()=>l.s.classList.add('on')));
   }
   if(sc.id==='s6'){
     heatCells.forEach((c,n)=>later(1+n*0.035,()=>{c.style.background=heatCols[(n*7+3)%5]}));

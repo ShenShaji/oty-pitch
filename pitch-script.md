@@ -22,7 +22,7 @@ With OTY working quietly in the background, principals see their whole school, c
 
 ## After the pitch: "Why us?" slide (press 7 or the right arrow)
 About 30 seconds. Three IIM Bangalore alumni whose skills fit together:
-- **Shen** (product and AI/tech): electrical engineer, AI and ML masters at IIIT-B, ML engineer at Tiger Analytics, MBA from IIM Bangalore, now product manager at Media.net.
+- **Shen** (product and AI/tech): AI and ML masters at IIIT-B, ML engineer at Tiger Analytics, MBA from IIM Bangalore, now product manager at Media.net.
 - **Abhiram** (finance and operations): NIT Calicut, MBA from IIM Bangalore, founder's office at XpressHealth, CFA Level 1 passed.
 - **Midhun** (strategy and marketing): strategist at Mitsogo, MBA from IIM Bangalore, strategy consultant at Accenture.
 - **Close on education:** "All three of us have worked in education: Shen was a subject matter expert at Byju's and, with Abhiram, coached CAT at OpenGrad for two years, and Midhun did education work with an NGO for two years."

@@ -20,8 +20,16 @@ Students get practice that fits them, and their own Oh-That's-Y moments. Teacher
 **1:13–1:30 · Outcomes (mascot tiles: principals, children, teachers, parents)**
 With OTY working quietly in the background, principals see their whole school, children enjoy learning, teachers get their time and calm back, and parents feel proud. Bridging learning and teaching in India. OTY: Oh, That's Y!
 
+## After the pitch: "Why us?" slide (press 7 or the right arrow)
+About 30 seconds. Three IIM Bangalore alumni whose skills fit together:
+- **Shen** (product and AI/tech): electrical engineer, AI and ML masters at IIIT-B, ML engineer at Tiger Analytics, MBA from IIM Bangalore, now product manager at Media.net.
+- **Abhiram** (finance and operations): NIT Calicut, MBA from IIM Bangalore, founder's office at XpressHealth, CFA Level 1 passed.
+- **Midhun** (strategy and marketing): strategist at Mitsogo, MBA from IIM Bangalore, strategy consultant at Accenture.
+- **Close on education:** "All three of us have worked in education: Shen was a subject matter expert at Byju's and, with Abhiram, coached CAT at OpenGrad for two years, and Midhun did education work with an NGO for two years."
+
+
 ## Notes
 - About 190 spoken words; leave small pauses at the scene changes.
 - The 1,670 km/h figure is for the equator (40,075 km in 24 h). Say "near the equator"; at Indian latitudes it is lower.
 - Do not quote revenue or profit numbers; they rest on unverified assumptions. No real-school results exist yet.
-- Keys: Space pause, R restart, F fullscreen, 1-6 jump (hook, answer, problem, OTY, stakeholders, close).
+- Keys: Space pause, R restart, F fullscreen, 1-6 jump (hook, answer, problem, OTY, stakeholders, close), 7 or right arrow for Why us, left arrow to go back.
